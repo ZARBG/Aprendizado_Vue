@@ -13,16 +13,14 @@
     <p>{{message}}</p>
     <input type="text" v-model="textoDigitado" name="" id="">
     {{textoDigitado}}
+    <button>Chamar altera nome</button>
     <br />
-    <div v-if="textoDigitado==1">
-      <img :src="srcImg" :title="titleImg">
+    <label v-text="textoDigitado"></label>
+    <br />
+    <div v-for="(img,index) in srcImg">
+      <span>{{index}}</span> - <img :src="img">
     </div>
-    <div v-if="textoDigitado==2">
-      <img :src="srcImg2" alt="titleImg">
-    </div>
-    <div v-if="textoDigitado==3">
-      <img :src="srcImg3" alt="titleImg">
-    </div>
+
 
   </div>
 
@@ -33,14 +31,15 @@
       data() {
         return {
           message: 'Hello Vue!',
-          srcImg: 'img/400_2435.jpg',
-          srcImg2: 'img/margaridas.jfif',
-          srcImg3: '/img/tullipa.png',
+          srcImg: ["img/400_2435.jpg", "img/margaridas.jfif", "img/tullipa.png"],
           textoDigitado: '',
-
-
         }
       },
+      methods: {
+        alteraNome() {
+          this.textoDigitado = 'Hello Vue!' + this.textoDigitado;
+        }
+      }
     }
     Vue.createApp(application).mount('#app');
   </script>
