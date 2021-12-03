@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <p>{{ehVerdade?'Verdade':'Falso'}}</p>
+    <p>{{frutas[1] + ' e ' + frutas[2]}}</p>
+    <p>Aluna: {{aluno.nome}}</p>
+    <p>{{fun()}}</p>
+    <p>{{cesta(2)}}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const application = {
+
+      data() {
+        return {
+          message: 'Hello Vue!',
+          ehVerdade: true,
+          frutas: ['Banana', 'Maçã', 'Uva'],
+          aluno: {
+            nome: 'Carlota Joaquina',
+            idade: 20
+          }
+        }
+      },
+      methods: {
+        fun() {
+          return 'Função executada';
+        },
+        cesta(indice) {
+          return 'Fruta: ' + this.frutas[indice];
+        }
+      }
+    }
+    Vue.createApp(application).mount('#app');
+  </script>
+</body>
+
+</html>

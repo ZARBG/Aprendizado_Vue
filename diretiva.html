@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <input type="text" v-model="textoDigitado" name="" id="">
+    {{textoDigitado}}
+    <br />
+    <div v-if="textoDigitado==1">
+      <img :src="srcImg" :title="titleImg">
+    </div>
+    <div v-if="textoDigitado==2">
+      <img :src="srcImg2" alt="titleImg">
+    </div>
+    <div v-if="textoDigitado==3">
+      <img :src="srcImg3" alt="titleImg">
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const application = {
+
+      data() {
+        return {
+          message: 'Hello Vue!',
+          srcImg: 'img/400_2435.jpg',
+          srcImg2: 'img/margaridas.jfif',
+          srcImg3: '/img/tullipa.png',
+          textoDigitado: '',
+
+
+        }
+      },
+    }
+    Vue.createApp(application).mount('#app');
+  </script>
+</body>
+
+</html>
